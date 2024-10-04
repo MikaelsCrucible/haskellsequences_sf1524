@@ -37,7 +37,9 @@ digitToInt x = ord x - ord '0'
 -- | Returns the upper case character corresponding to the input.
 -- Uses guards by way of variety.
 toUpper :: Char -> Char
-toUpper x = chr( ord x - ( ord 'a' - ord 'A' ) )
+toUpper x
+  | x >= 'a' && x <= 'z' = chr( ord x - ( ord 'a' - ord 'A' ) )
+  | otherwise = x
 
 --
 -- Sequences and series
@@ -45,16 +47,20 @@ toUpper x = chr( ord x - ( ord 'a' - ord 'A' ) )
 
 -- | Arithmetic sequence
 arithmeticSeq :: Double -> Double -> Int -> Double
-arithmeticSeq = undefined
+arithmeticSeq a d n = a + d * fromIntegral n
 
 -- | Geometric sequence
 geometricSeq :: Double -> Double -> Int -> Double
-geometricSeq = undefined
+geometricSeq a r n
+  | n == 0 = a
+  | otherwise = r * geometricSeq a r ( n - 1 )
 
 -- | Arithmetic series
 arithmeticSeries :: Double -> Double -> Int -> Double
-arithmeticSeries = undefined
+arithmeticSeries a d n = fromIntegral( n + 1 ) * ( a + fromIntegral n * d ) / 2.0
 
 -- | Geometric series
 geometricSeries :: Double -> Double -> Int -> Double
-geometricSeries = undefined
+geometricSeries a r n
+  | r == 1.0 = a * fromIntegral( n + 1 )
+  | otherwise = a * (1.0 - r ^ fromIntegral( n + 1 )) / (1.0 - r )
