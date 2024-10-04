@@ -16,17 +16,12 @@ maxOf3 x y z = if x >= maxOf2 y z then
 -- | Returns True if the character represents a digit '0'..'9';
 -- False otherwise
 isADigit :: Char -> Bool
-isADigit x
-  | x >= '0' && x <= '9' = True
-  | otherwise = False
+isADigit x = x >= '0' && x <= '9'
 -- | Returns True if the character represents an alphabetic
 -- character either in the range 'a'..'z' or in the range 'A'..'Z';
 -- False otherwise
 isAlpha :: Char -> Bool
-isAlpha x
-  | x >= 'a' && x <= 'z' = True
-  | x >= 'A' && x <= 'Z' = True
-  | otherwise = False
+isAlpha x = ( x >= 'a' && x <= 'z' ) || ( x >= 'A' && x <= 'Z' )
 -- | Returns the integer [0..9] corresponding to the given character.
 -- Note: this is a simpler version of digitToInt in module Data.Char,
 -- which does not assume the precondition.
