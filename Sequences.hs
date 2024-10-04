@@ -57,7 +57,7 @@ geometricSeq a r n
 
 -- | Arithmetic series
 arithmeticSeries :: Double -> Double -> Int -> Double
-arithmeticSeries a d n = fromIntegral( n + 1 ) * ( a + fromIntegral n * d ) / 2.0
+arithmeticSeries a d n = (a * 2.0 + d * fromIntegral n) * fromIntegral ( n + 1 ) / 2.0
 
 -- | Geometric series
 geometricSeries :: Double -> Double -> Int -> Double
