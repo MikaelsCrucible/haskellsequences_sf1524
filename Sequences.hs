@@ -1,5 +1,6 @@
 module Sequences where
 import Data.Char (ord, chr)
+-- test for online IDE
 -- | Returns the first argument if it is larger than the second,
 -- the second argument otherwise
 maxOf2 :: Int -> Int -> Int
